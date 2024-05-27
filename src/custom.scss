@@ -1,0 +1,21 @@
+html {
+  line-height: 1.5;
+  font-size: 15px;
+  overflow-x: hidden;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+#app {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  p {
+    font-family: "IBM Plex Sans JP", sans-serif !important;
+  }
+}
+:root {
+  --v-theme-overlay-multiplier: 1;
+  --v-scrollbar-offset: 0px;
+}

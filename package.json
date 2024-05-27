@@ -1,0 +1,26 @@
+{
+  "name": "toLocaleString",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "format": "prettier \"**/*.{vue,js,html}\" --write"
+  },
+  "dependencies": {
+    "@highlightjs/vue-plugin": "2.1.0",
+    "highlight.js": "11.9.0",
+    "vue": "3.4.21",
+    "vuetify": "3.6.4"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "5.0.4",
+    "dotenv": "16.4.5",
+    "prettier": "3.2.5",
+    "sass": "1.77.0",
+    "typescript": "5.4.5",
+    "vite": "5.2.0"
+  }
+}
