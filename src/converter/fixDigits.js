@@ -1,7 +1,7 @@
 /**
- * 数値を指定した桁数で整形します
- * @param number
- * @param digit
+ * 数値を指定した桁数で固定します
+ * @param {number} number 小数点固定したい数値
+ * @param {number} digit 固定したい桁数
  * @returns {string}
  */
 export const fixDigits = (number, digit) => {

@@ -1,6 +1,6 @@
 /**
  * ロケールに合わせて時刻表示を調整します
- * @param date
+ * @param {Date} date 時刻を表示したい日付オブジェクト
  * @returns {string}
  */
 export const adjustHourDisplay = (date) => {

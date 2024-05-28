@@ -1,7 +1,7 @@
 /**
  * 数値を%に変換します
- * @param number
- * @param maximumFractionDigits
+ * @param {number} number %に変換したい数値
+ * @param {number} maximumFractionDigits 小数点以下の最大表示桁数
  * @returns {string | undefined}
  */
 export const toPercentage = (number, maximumFractionDigits) => {

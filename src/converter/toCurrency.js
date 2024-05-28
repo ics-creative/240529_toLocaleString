@@ -1,8 +1,8 @@
 /**
  * 数値を通貨単位に変換します
- * @param number
- * @param currencyCode
- * @param currencyDisplay
+ * @param {number} number
+ * @param {string} currencyCode
+ * @param {"symbol" | "narrowSymbol" | "code" | "name"} currencyDisplay 通貨の表示形式
  * @returns {string}
  */
 export const toCurrency = (number, currencyCode, currencyDisplay) => {

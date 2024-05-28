@@ -1,6 +1,6 @@
 /**
  * 〜万、〜億表記の数値に変換します
- * @param number
+ * @param {number} number 変換したい数値
  * @returns {string}
  */
 export const toKanjiNumber = (number) => {
@@ -12,7 +12,8 @@ export const toKanjiNumber = (number) => {
 
 /**
  * 〜万、〜億表記の数値に変換します（小数点表記）
- * @param number
+ * @param {number} number 変換したい数値
+ * @param {number} digit 小数点以下の最大表示桁数
  * @returns {string}
  */
 export const toKanjiNumberWithDigits = (number, digit) => {

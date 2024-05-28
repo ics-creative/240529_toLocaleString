@@ -1,6 +1,6 @@
 /**
  * 日付オブジェクトをYYYY/MM/DD形式の文字列に変換します
- * @param date
+ * @param {Date} date YYYY/MM/DD形式に変換したい日付オブジェクト
  * @returns {string}
  */
 export const toYYYYMMDD = (date) => {

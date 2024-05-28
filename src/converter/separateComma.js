@@ -1,6 +1,6 @@
 /**
  * 数値をカンマ区切りに変換する
- * @param number
+ * @param {number} number カンマ区切りにしたい数値
  * @returns {string}
  */
 export const separateComma = (number) => {
