@@ -211,24 +211,30 @@ const computedWithUnit = computed(() => {
   return addUnit(inputWithUnit.value, selectedUnit.value);
 });
 
+const today = new Date();
+
 // YYYY/MM/DD日付に変換
-const dateYYYYMMDD = ref();
+const dateYear = ref(today.getFullYear());
+const dateMonth = ref(today.getMonth() + 1);
+const dateDay = ref(today.getDate());
 
 const computedDateYYYYMMDD = computed(() => {
-  if (dateYYYYMMDD.value === undefined) {
-    return "";
-  }
-  return toYYYYMMDD(dateYYYYMMDD.value);
+  const theDate = new Date(dateYear.value, dateMonth.value - 1, dateDay.value);
+  return toYYYYMMDD(theDate);
 });
 
 // 年を和暦に変換
-const dateJapaneseCalendar = ref();
+const calendarYear = ref(today.getFullYear());
+const calendarMonth = ref(today.getMonth() + 1);
+const calendarDay = ref(today.getDate());
 
 const computedDateJapaneseCalendar = computed(() => {
-  if (dateJapaneseCalendar.value === undefined) {
-    return "";
-  }
-  return toJapaneseCalendar(dateJapaneseCalendar.value);
+  const theDate = new Date(
+    calendarYear.value,
+    calendarMonth.value - 1,
+    calendarDay.value,
+  );
+  return toJapaneseCalendar(theDate);
 });
 
 // ロケールに応じた時間表記
@@ -240,14 +246,6 @@ const computedLocaleTime = computed(() => {
   }
   return adjustHourDisplay(nowData.value);
 });
-
-const allowDate = (date: Date) => {
-  const year = date.getFullYear();
-  if (year >= 645) {
-    return true;
-  }
-  return false;
-};
 
 onMounted(() => {
   nowData.value = new Date();
@@ -834,9 +832,37 @@ const adjustLocale = (unit) => {
               </v-row>
               <v-row class="pt-4">
                 <v-col>
-                  <div>
-                    <VDateInput v-model="dateYYYYMMDD" />
-                  </div>
+                  <v-row>
+                    <v-col>
+                      <v-select
+                        label="年"
+                        v-model="dateYear"
+                        :items="
+                          Array.from(
+                            { length: 101 },
+                            (_, i) => new Date().getFullYear() - 100 + i,
+                          )
+                        "
+                        item-title="label"
+                      />
+                    </v-col>
+                    <v-col>
+                      <v-select
+                        label="月"
+                        v-model="dateMonth"
+                        :items="Array.from({ length: 12 }, (_, i) => i + 1)"
+                        item-title="label"
+                      />
+                    </v-col>
+                    <v-col>
+                      <v-select
+                        label="日"
+                        v-model="dateDay"
+                        :items="Array.from({ length: 31 }, (_, i) => i + 1)"
+                        item-title="label"
+                      />
+                    </v-col>
+                  </v-row>
                 </v-col>
               </v-row>
               <v-row>
@@ -892,12 +918,37 @@ const toYYYYMMDD = (date) => {
               </v-row>
               <v-row class="pt-4">
                 <v-col>
-                  <div>
-                    <VDateInput
-                      v-model="dateJapaneseCalendar"
-                      min="0645-01-01T00:00:00"
-                    />
-                  </div>
+                  <v-row>
+                    <v-col>
+                      <v-select
+                        label="年"
+                        v-model="calendarYear"
+                        :items="
+                          Array.from(
+                            { length: 101 },
+                            (_, i) => new Date().getFullYear() - 100 + i,
+                          )
+                        "
+                        item-title="label"
+                      />
+                    </v-col>
+                    <v-col>
+                      <v-select
+                        label="月"
+                        v-model="calendarMonth"
+                        :items="Array.from({ length: 12 }, (_, i) => i + 1)"
+                        item-title="label"
+                      />
+                    </v-col>
+                    <v-col>
+                      <v-select
+                        label="日"
+                        v-model="calendarDay"
+                        :items="Array.from({ length: 31 }, (_, i) => i + 1)"
+                        item-title="label"
+                      />
+                    </v-col>
+                  </v-row>
                 </v-col>
               </v-row>
               <v-row>
