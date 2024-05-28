@@ -306,7 +306,7 @@ onBeforeMount(() => {
                           lang="javascript"
                           code='/**
  * 数値をカンマ区切りに変換する
- * @param number
+ * @param {number} number カンマ区切りにしたい数値
  * @returns {string}
  */
 const separateComma = (number) => {
@@ -372,8 +372,8 @@ const separateComma = (number) => {
                           lang="javascript"
                           code='/**
  * 小数を丸めます
- * @param number
- * @param maximumFractionDigits
+ * @param {number} number 丸めたい数値
+ * @param {number} maximumFractionDigits 小数点以下の最大表示桁数
  * @returns {string}
  */
 const roundDecimals = (number, maximumFractionDigits) => {
@@ -438,9 +438,9 @@ const roundDecimals = (number, maximumFractionDigits) => {
                         <highlightjs
                           lang="javascript"
                           code='/**
- * 数値を指定した桁数で整形します
- * @param number
- * @param digit
+ * 数値を指定した桁数で固定します
+ * @param {number} number 小数点固定したい数値
+ * @param {number} digit 固定したい桁数
  * @returns {string}
  */
 export const fixDigits = (number, digit) => {
@@ -497,7 +497,7 @@ export const fixDigits = (number, digit) => {
                           lang="javascript"
                           code='/**
  * 〜万、〜億表記の数値に変換します
- * @param number
+ * @param {number} number 変換したい数値
  * @returns {string}
  */
 export const toKanjiNumber = (number) => {
@@ -564,7 +564,8 @@ export const toKanjiNumber = (number) => {
                           lang="javascript"
                           code='/**
  * 〜万、〜億表記の数値に変換します（小数点表記）
- * @param number
+ * @param {number} number 変換したい数値
+ * @param {number} digit 小数点以下の最大表示桁数
  * @returns {string}
  */
 const toKanjiNumberWithDigits = (number, digit) => {
@@ -631,8 +632,8 @@ const toKanjiNumberWithDigits = (number, digit) => {
                           lang="javascript"
                           code='/**
  * 数値を%に変換します
- * @param number
- * @param maximumFractionDigits
+ * @param {number} number %に変換したい数値
+ * @param {number} maximumFractionDigits 小数点以下の最大表示桁数
  * @returns {string | undefined}
  */
 const toPercentage = (number, maximumFractionDigits) => {
@@ -709,9 +710,9 @@ const toPercentage = (number, maximumFractionDigits) => {
                           lang="javascript"
                           code='/**
  * 数値を通貨単位に変換します
- * @param number
- * @param currencyCode
- * @param currencyDisplay
+ * @param {number} number
+ * @param {string} currencyCode
+ * @param {"symbol" | "narrowSymbol" | "code" | "name"} currencyDisplay 通貨の表示形式
  * @returns {string}
  */
 const toCurrency = (number, currencyCode, currencyDisplay) => {
@@ -777,8 +778,8 @@ const toCurrency = (number, currencyCode, currencyDisplay) => {
                           lang="javascript"
                           code='/**
  * 単位を付与します
- * @param number
- * @param unit
+ * @param {number} number 単位を付与したい数値
+ * @param {string} unit 単位
  * @returns {string}
  */
 const addUnit = (number, unit) => {
@@ -794,7 +795,7 @@ const addUnit = (number, unit) => {
  * 単位に応じてロケールを調整します
  * 例えばkmの場合、ja-JPだと「キロメートル」と返されてしまいますが、en-USだと「km」と返されます
  * そのため、キロメートル、キログラム、リットルのみen-USに変更します。それ以外は日本語にします
- * @param unit
+ * @param {string} unit 単位
  */
 const adjustLocale = (unit) => {
   switch (unit) {
@@ -882,7 +883,7 @@ const adjustLocale = (unit) => {
                           lang="javascript"
                           code='/**
  * 日付オブジェクトをYYYY/MM/DD形式の文字列に変換します
- * @param date
+ * @param {Date} date YYYY/MM/DD形式に変換したい日付オブジェクト
  * @returns {string}
  */
 const toYYYYMMDD = (date) => {
@@ -968,7 +969,7 @@ const toYYYYMMDD = (date) => {
                           lang="javascript"
                           code='/**
  * 日付オブジェクトを和暦表示に変換します
- * @param date
+ * @param {Date} date 和暦表示に変換したい日付オブジェクト
  * @returns {string}
  */
 const toJapaneseCalendar = (date) => {
