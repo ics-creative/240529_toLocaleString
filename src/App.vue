@@ -268,7 +268,7 @@ onBeforeMount(() => {
           toLocaleString()の詳しい使い方は<a
             href="https://ics.media/entry/240529/"
             target="_blank"
-            >記事『』</a
+            >記事『数値や日付をさまざまな形式の文字列に変換できるtoLocaleString()を使ってスマートに表示する』</a
           >を参照してください
         </p>
       </v-row>
