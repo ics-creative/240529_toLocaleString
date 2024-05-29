@@ -134,7 +134,7 @@ const currencyList = [
   },
 ];
 
-const selectedCurrencyDisplay = ref("symbol");
+const selectedCurrencyDisplay = ref<"symbol" | "narrowSymbol" | "code" | "name">("symbol");
 
 const currencyDisplayList = [
   {
@@ -443,7 +443,7 @@ const roundDecimals = (number, maximumFractionDigits) => {
  * @param {number} digit 固定したい桁数
  * @returns {string}
  */
-export const fixDigits = (number, digit) => {
+const fixDigits = (number, digit) => {
   return number.toLocaleString("ja-JP", {
     maximumFractionDigits: digit, // 小数点以下の最大桁数を指定する
     minimumFractionDigits: digit, // 小数点以下の最小桁数を指定する
@@ -500,7 +500,7 @@ export const fixDigits = (number, digit) => {
  * @param {number} number 変換したい数値
  * @returns {string}
  */
-export const toKanjiNumber = (number) => {
+const toKanjiNumber = (number) => {
   return number.toLocaleString("ja-JP", {
     notation: "compact",
     compactDisplay: "short",
